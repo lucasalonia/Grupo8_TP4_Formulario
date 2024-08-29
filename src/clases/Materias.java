@@ -1,40 +1,32 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package clases;
 
-/*
-La Materia
-tiene un idMateria, un
-nombre de la materia y
-año al que pertenece,
-tiene además un
-constructor que
-inicializa sus
-propiedades y
-métodos get y set para
-cada uno de sus
-atributos.
- */
+import java.util.Objects;
 
 /**
  *
- * @author matia
+ * @author salon
  */
-public class Materia {
+public class Materias {
     
-    private  int idMateria;
+      private  String idMateria;
     private String nombreMateria;
     private int anio;
 
-    public Materia(int idMateria, String nombreMateria, int anio) {
+    public Materias(String idMateria, String nombreMateria, int anio) {
         this.idMateria = idMateria;
         this.nombreMateria = nombreMateria;
         this.anio = anio;
     }
 
-    public int getIdMateria() {
+    public String getIdMateria() {
         return idMateria;
     }
 
-    public void setIdMateria(int idMateria) {
+    public void setIdMateria(String idMateria) {
         this.idMateria = idMateria;
     }
 
@@ -56,7 +48,7 @@ public class Materia {
 
     @Override
     public String toString() {
-        return "Materia{" + "idMateria=" + idMateria + ", nombreMateria=" + nombreMateria + ", anio=" + anio + '}';
+        return  nombreMateria;
     }
 
     @Override
@@ -76,9 +68,12 @@ public class Materia {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Materia other = (Materia) obj;
-        return this.idMateria == other.idMateria;
+        final Materias other = (Materias) obj;
+        if (!Objects.equals(this.idMateria, other.idMateria)) {
+            return false;
+        }
+        return Objects.equals(this.nombreMateria, other.nombreMateria);
     }
-    
+
     
 }

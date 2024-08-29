@@ -4,18 +4,34 @@
  */
 package tp4_segundaversion;
 
+import java.util.HashSet;
+import javax.swing.JOptionPane;
+import clases.Materias;
+
 /**
  *
  * @author salon
  */
 public class Materia extends javax.swing.JInternalFrame {
-
+         HashSet<Materias> materia;
     /**
      * Creates new form Materia
+     * @param materia
      */
-    public Materia() {
+    public Materia(HashSet<Materias> materia) {
         initComponents();
+
+        this.materia=materia;
     }
+
+    public HashSet<Materias> getMateria() {
+        return materia;
+    }
+
+    public void setMateria(HashSet<Materias> materia) {
+        this.materia = materia;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,21 +42,188 @@ public class Materia extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jtNombreM = new javax.swing.JTextField();
+        jtCodigoM = new javax.swing.JTextField();
+        jtAño = new javax.swing.JTextField();
+        jbSalir = new javax.swing.JButton();
+        jbNuevoM = new javax.swing.JButton();
+        jbGuardarM = new javax.swing.JButton();
+        jbTestM = new javax.swing.JButton();
+
+        jLabel1.setFont(new java.awt.Font("3270 Nerd Font", 0, 36)); // NOI18N
+        jLabel1.setText("Formulario Materias");
+
+        jLabel2.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jLabel2.setText("Nombre de la materia:");
+
+        jLabel3.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jLabel3.setText("Codigo de la materia:");
+
+        jLabel4.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jLabel4.setText("Año de pertencia:");
+
+        jtNombreM.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+
+        jtCodigoM.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+
+        jtAño.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jtAño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtAñoActionPerformed(evt);
+            }
+        });
+
+        jbSalir.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jbSalir.setText("Salir");
+        jbSalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
+
+        jbNuevoM.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jbNuevoM.setText("Nuevo");
+        jbNuevoM.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbNuevoM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoMActionPerformed(evt);
+            }
+        });
+
+        jbGuardarM.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jbGuardarM.setText("Guardar");
+        jbGuardarM.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbGuardarM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarMActionPerformed(evt);
+            }
+        });
+
+        jbTestM.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jbTestM.setText("Test");
+        jbTestM.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbTestM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbTestMActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(170, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(166, 166, 166))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jbTestM)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbGuardarM)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbNuevoM)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbSalir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtAño, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                            .addComponent(jtCodigoM)
+                            .addComponent(jtNombreM))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 379, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jtNombreM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jtCodigoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jtAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbSalir)
+                    .addComponent(jbNuevoM)
+                    .addComponent(jbGuardarM)
+                    .addComponent(jbTestM))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbTestMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTestMActionPerformed
+        // TODO add your handling code here:
+           for(Materias i:materia){
+            System.out.println(i);
+        }
+    }//GEN-LAST:event_jbTestMActionPerformed
+   
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
+    
+    private void jbGuardarMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarMActionPerformed
+        // TODO add your handling code here:
+          try{
+            String idMateria=jtCodigoM.getText();
+            String nombreM= jtNombreM.getText();
+            String año= jtAño.getText();
+            int anio = Integer.parseInt(año);
+            Materias m = new Materias(idMateria,nombreM,anio);
+            materia.add(m);
+            MenuPrincipal.setMateria(materia);
+            JOptionPane.showMessageDialog(this, "Matertia guardad!");
+        }catch(NumberFormatException c){
+           JOptionPane.showMessageDialog(this, "Error. Años solo acepta numeros", "Error",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jbGuardarMActionPerformed
+
+    private void jtAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtAñoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtAñoActionPerformed
+
+    private void jbNuevoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoMActionPerformed
+        // TODO add your handling code here:
+        jtCodigoM.setText("");
+       jtNombreM.setText("");
+       jtAño.setText("");
+    }//GEN-LAST:event_jbNuevoMActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton jbGuardarM;
+    private javax.swing.JButton jbNuevoM;
+    private javax.swing.JButton jbSalir;
+    private javax.swing.JButton jbTestM;
+    private javax.swing.JTextField jtAño;
+    private javax.swing.JTextField jtCodigoM;
+    private javax.swing.JTextField jtNombreM;
     // End of variables declaration//GEN-END:variables
 }

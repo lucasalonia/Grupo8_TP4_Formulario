@@ -6,17 +6,17 @@ import java.util.HashSet;
 
 
 
-public class Alumno {
+public class Alumnos {
     private int legajo;
     private String apellido;
     private String nombre;
-    private HashSet<Materia> materias= new HashSet ();
+    private HashSet<Materias> materias= new HashSet ();
     
     
 
 
 
-    public Alumno(int legajo, String apellido, String nombre) {
+    public Alumnos(int legajo, String apellido, String nombre) {
         this.legajo = legajo;
         this.apellido = apellido;
         this.nombre = nombre;
@@ -52,7 +52,7 @@ public class Alumno {
 inscribir al Alumno en una materia determinada (implementar de manera tal que no deje
 inscribir un alumno en dos materias iguales.) y otro método cantidadMaterias que devuelve la
 cantidad de materias a las que está inscripto el alumno.*/
-    public void agregarMateria(Materia m) {
+    public void agregarMateria(Materias m) {
         
         materias.add(m);
     }
@@ -79,7 +79,7 @@ cantidad de materias a las que está inscripto el alumno.*/
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Alumno other = (Alumno) obj;
+        final Alumnos other = (Alumnos) obj;
         return this.legajo == other.legajo;
     }
 
