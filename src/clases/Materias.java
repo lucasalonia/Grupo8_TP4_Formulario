@@ -12,7 +12,7 @@ import java.util.Objects;
  */
 public class Materias {
     
-      private  String idMateria;
+    private  String idMateria;
     private String nombreMateria;
     private int anio;
 
@@ -48,8 +48,10 @@ public class Materias {
 
     @Override
     public String toString() {
-        return  nombreMateria;
+        return nombreMateria;
     }
+
+ 
 
     @Override
     public int hashCode() {

@@ -195,7 +195,7 @@ public class Materia extends javax.swing.JInternalFrame {
             Materias m = new Materias(idMateria,nombreM,anio);
             materia.add(m);
             MenuPrincipal.setMateria(materia);
-            JOptionPane.showMessageDialog(this, "Matertia guardad!");
+            JOptionPane.showMessageDialog(this, "Materia guardada!");
         }catch(NumberFormatException c){
            JOptionPane.showMessageDialog(this, "Error. Años solo acepta numeros", "Error",JOptionPane.ERROR_MESSAGE);
         }
