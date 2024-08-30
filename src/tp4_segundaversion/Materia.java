@@ -7,6 +7,7 @@ package tp4_segundaversion;
 import java.util.HashSet;
 import javax.swing.JOptionPane;
 import clases.Materias;
+import java.awt.Color;
 
 /**
  *
@@ -20,7 +21,7 @@ public class Materia extends javax.swing.JInternalFrame {
      */
     public Materia(HashSet<Materias> materia) {
         initComponents();
-
+        getContentPane().setBackground(Color.DARK_GRAY);
         this.materia=materia;
     }
 
@@ -55,22 +56,32 @@ public class Materia extends javax.swing.JInternalFrame {
         jbTestM = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("3270 Nerd Font", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 204, 0));
         jLabel1.setText("Formulario Materias");
 
         jLabel2.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("Nombre de la materia:");
 
         jLabel3.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Codigo de la materia:");
 
         jLabel4.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setText("Año de pertencia:");
 
+        jtNombreM.setBackground(new java.awt.Color(51, 51, 51));
         jtNombreM.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jtNombreM.setForeground(new java.awt.Color(0, 153, 0));
 
+        jtCodigoM.setBackground(new java.awt.Color(51, 51, 51));
         jtCodigoM.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jtCodigoM.setForeground(new java.awt.Color(0, 153, 0));
 
+        jtAño.setBackground(new java.awt.Color(51, 51, 51));
         jtAño.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jtAño.setForeground(new java.awt.Color(0, 153, 0));
         jtAño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtAñoActionPerformed(evt);

@@ -3,18 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package tp4_segundaversion;
+import clases.*;
+import java.awt.Color;
+import java.util.HashSet;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author salon
  */
 public class Alumno extends javax.swing.JInternalFrame {
-
+            HashSet<Alumnos> alumnoHash=new HashSet<>();
     /**
      * Creates new form Alumno
      */
-    public Alumno() {
+    public Alumno(HashSet<Alumnos> alumnoHash) {
         initComponents();
+         getContentPane().setBackground(Color.DARK_GRAY);
+        this.alumnoHash=alumnoHash;
+        
     }
 
     /**
@@ -30,15 +37,16 @@ public class Alumno extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jtNombreA = new javax.swing.JTextField();
+        jtApellidoA = new javax.swing.JTextField();
+        jtLegajoA = new javax.swing.JTextField();
+        jbGuardar = new javax.swing.JButton();
+        jbTest = new javax.swing.JButton();
+        jbNuevo = new javax.swing.JButton();
+        jbSalir = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("3270 Nerd Font", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 204, 0));
         jLabel1.setText("Formulario Alumnos");
 
         jLabel2.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
@@ -50,27 +58,53 @@ public class Alumno extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
         jLabel4.setText("Numero de legajo:");
 
-        jTextField1.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jtNombreA.setBackground(new java.awt.Color(51, 51, 51));
+        jtNombreA.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jtNombreA.setForeground(new java.awt.Color(0, 204, 0));
 
-        jTextField2.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jtApellidoA.setBackground(new java.awt.Color(51, 51, 51));
+        jtApellidoA.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jtApellidoA.setForeground(new java.awt.Color(0, 204, 0));
 
-        jTextField3.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jtLegajoA.setBackground(new java.awt.Color(51, 51, 51));
+        jtLegajoA.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jtLegajoA.setForeground(new java.awt.Color(0, 204, 0));
 
-        jButton1.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
-        jButton1.setText("Guardar");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbGuardar.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jbGuardar.setText("Guardar");
+        jbGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
-        jButton2.setText("Test");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbTest.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jbTest.setText("Test");
+        jbTest.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbTestActionPerformed(evt);
+            }
+        });
 
-        jButton3.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
-        jButton3.setText("Nuevo");
-        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbNuevo.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jbNuevo.setText("Nuevo");
+        jbNuevo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
 
-        jButton4.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
-        jButton4.setText("Salir");
-        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbSalir.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jbSalir.setText("Salir");
+        jbSalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,25 +115,25 @@ public class Alumno extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(13, 13, 13)
-                        .addComponent(jButton2)
+                        .addComponent(jbTest)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(jbGuardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
+                        .addComponent(jbNuevo)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4))
+                        .addComponent(jbSalir))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel2))
                         .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
-                            .addComponent(jTextField1)))
+                            .addComponent(jtLegajoA, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                            .addComponent(jtNombreA)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField2)))
+                        .addComponent(jtApellidoA)))
                 .addGap(95, 95, 95))
             .addGroup(layout.createSequentialGroup()
                 .addGap(192, 192, 192)
@@ -113,40 +147,75 @@ public class Alumno extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtApellidoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtNombreA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtLegajoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(jbTest)
+                    .addComponent(jbGuardar)
+                    .addComponent(jbNuevo)
+                    .addComponent(jbSalir))
                 .addGap(39, 39, 39))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        // TODO add your handling code here:
+        try{
+            String apellido = jtApellidoA.getText();
+            String nombre = jtNombreA.getText();
+            int legajo = Integer.parseInt(jtLegajoA.getText());
+            Alumnos a = new Alumnos(legajo,apellido,nombre);
+            alumnoHash.add(a);
+            MenuPrincipal.setAlumno(alumnoHash);
+            JOptionPane.showMessageDialog(this, "Alumno preparado para la inscripcion!");
+        }
+        catch(NumberFormatException e){
+             JOptionPane.showMessageDialog(this, "Error. Legajo solo acepta valores numericos!", "Error",JOptionPane.ERROR_MESSAGE);   
+        }
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+        // TODO add your handling code here:
+        jtNombreA.setText("");
+        jtLegajoA.setText("");
+        jtApellidoA.setText("");
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
+    private void jbTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTestActionPerformed
+        // TODO add your handling code here:
+        for(Alumnos a: alumnoHash){
+            System.out.println(a);
+        }
+    }//GEN-LAST:event_jbTestActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton jbGuardar;
+    private javax.swing.JButton jbNuevo;
+    private javax.swing.JButton jbSalir;
+    private javax.swing.JButton jbTest;
+    private javax.swing.JTextField jtApellidoA;
+    private javax.swing.JTextField jtLegajoA;
+    private javax.swing.JTextField jtNombreA;
     // End of variables declaration//GEN-END:variables
 }

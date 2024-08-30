@@ -22,6 +22,10 @@ public class Materias {
         this.anio = anio;
     }
 
+    public Materias() {
+    }
+    
+
     public String getIdMateria() {
         return idMateria;
     }

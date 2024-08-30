@@ -5,9 +5,11 @@
 package tp4_segundaversion;
 
 import clases.*;
-import java.util.ArrayList;
+import java.awt.Color;
+
 import java.util.HashSet;
-import java.util.Iterator;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -15,15 +17,21 @@ import java.util.Iterator;
  */
 public class Inscripcion extends javax.swing.JInternalFrame {
          HashSet<Materias> materia=MenuPrincipal.materia;
+         HashSet<Alumnos> alumnIn =MenuPrincipal.alumno;
+         Alumnos alumnoSelect =new Alumnos();
+         Materias materiaSelect=new Materias();
          
     /**
      * Creates new form Inscripcion
      * @param materia
      */
-    public Inscripcion(HashSet<Materias> materia) {
+    public Inscripcion(HashSet<Materias> materia, HashSet<Alumnos> alumnIn) {
         initComponents();
         comboMateria();
+        comboAlumno();
+        getContentPane().setBackground(Color.DARK_GRAY);
         this.materia=materia;
+        this.alumnIn=alumnIn;
     }
 
     public void setMateria(HashSet<Materias> materia) {
@@ -42,46 +50,66 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        jcComboAl = new javax.swing.JComboBox<>();
+        jbInscribir = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jbTest = new javax.swing.JButton();
+        jcComboMa = new javax.swing.JComboBox<>();
 
         jLabel1.setFont(new java.awt.Font("3270 Nerd Font", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 204, 0));
         jLabel1.setText("Formulario de Inscripcion");
 
         jLabel2.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
         jLabel2.setText("ELIJA UNA MATERIA:");
 
         jLabel3.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
         jLabel3.setText("ELIJA UN ALUMNO:");
 
-        jComboBox2.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
-
-        jButton1.setFont(new java.awt.Font("3270 Nerd Font", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(51, 153, 255));
-        jButton1.setText("Inscribir");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jButton2.setFont(new java.awt.Font("3270 Nerd Font", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(51, 153, 255));
-        jButton2.setText("Salir");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jButton3.setText("jButton3");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jcComboAl.setBackground(new java.awt.Color(51, 51, 51));
+        jcComboAl.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jcComboAl.setForeground(new java.awt.Color(0, 204, 0));
+        jcComboAl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jcComboAlActionPerformed(evt);
             }
         });
 
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jbInscribir.setFont(new java.awt.Font("3270 Nerd Font", 1, 24)); // NOI18N
+        jbInscribir.setForeground(new java.awt.Color(102, 102, 102));
+        jbInscribir.setText("Inscribir");
+        jbInscribir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbInscribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jbInscribirActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("3270 Nerd Font", 1, 24)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(102, 102, 102));
+        jButton2.setText("Salir");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jbTest.setText("Test");
+        jbTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbTestActionPerformed(evt);
+            }
+        });
+
+        jcComboMa.setBackground(new java.awt.Color(51, 51, 51));
+        jcComboMa.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
+        jcComboMa.setForeground(new java.awt.Color(0, 204, 0));
+        jcComboMa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcComboMaActionPerformed(evt);
             }
         });
 
@@ -96,18 +124,18 @@ public class Inscripcion extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2))
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox2, 0, 200, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jcComboAl, 0, 200, Short.MAX_VALUE)
+                    .addComponent(jcComboMa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(86, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(jButton3)
-                        .addGap(111, 111, 111)
-                        .addComponent(jButton1)
+                        .addGap(98, 98, 98)
+                        .addComponent(jbTest)
+                        .addGap(121, 121, 121)
+                        .addComponent(jbInscribir)
                         .addGap(36, 36, 36)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)))
@@ -124,47 +152,71 @@ public class Inscripcion extends javax.swing.JInternalFrame {
                         .addComponent(jLabel2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(45, 45, 45)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jcComboMa, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcComboAl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jbInscribir)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jbTest))
                 .addGap(37, 37, 37))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jbTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTestActionPerformed
         // TODO add your handling code here:
         System.out.println(materia);
-    }//GEN-LAST:event_jButton3ActionPerformed
+        System.out.println(alumnIn);
+    }//GEN-LAST:event_jbTestActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jcComboMaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcComboMaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-    
+        materiaSelect=(Materias) jcComboMa.getSelectedItem();
+    }//GEN-LAST:event_jcComboMaActionPerformed
+
+    private void jcComboAlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcComboAlActionPerformed
+        // TODO add your handling code here:
+        alumnoSelect=(Alumnos) jcComboAl.getSelectedItem();
+    }//GEN-LAST:event_jcComboAlActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
+        // TODO add your handling code here:
+        alumnoSelect.agregarMateria(materiaSelect);
+       JOptionPane.showMessageDialog(this,  "Alumno: "+alumnoSelect+" inscripto en: "+materiaSelect, "Inscripcion realizada", HEIGHT);    
+    }//GEN-LAST:event_jbInscribirActionPerformed
+    private void comboAlumno(){
+        
+        for(Alumnos a : alumnIn){
+            jcComboAl.addItem(a);
+        }
+    }
     private void comboMateria(){
         for(Materias m : materia){
-            jComboBox1.addItem(m);
+            jcComboMa.addItem(m);
         }
+        
         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    public javax.swing.JComboBox<Materias> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton jbInscribir;
+    private javax.swing.JButton jbTest;
+    private javax.swing.JComboBox<Alumnos> jcComboAl;
+    public javax.swing.JComboBox<Materias> jcComboMa;
     // End of variables declaration//GEN-END:variables
  
 }

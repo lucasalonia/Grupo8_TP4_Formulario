@@ -21,6 +21,10 @@ public class Alumnos {
         this.apellido = apellido;
         this.nombre = nombre;
         
+        
+    }
+
+    public Alumnos() {
     }
 
  
@@ -53,7 +57,6 @@ inscribir al Alumno en una materia determinada (implementar de manera tal que no
 inscribir un alumno en dos materias iguales.) y otro método cantidadMaterias que devuelve la
 cantidad de materias a las que está inscripto el alumno.*/
     public void agregarMateria(Materias m) {
-        
         materias.add(m);
     }
 
@@ -85,7 +88,7 @@ cantidad de materias a las que está inscripto el alumno.*/
 
     @Override
     public String toString() {
-        return "Alumno{" + "legajo=" + legajo + ", apellido=" + apellido + ", nombre=" + nombre + ", materias=" + materias + '}';
+        return apellido  + nombre;
     }
     
 }

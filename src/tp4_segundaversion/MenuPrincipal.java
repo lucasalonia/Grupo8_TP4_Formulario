@@ -5,7 +5,8 @@
 package tp4_segundaversion;
 
 import java.util.HashSet;
-import clases.Materias;
+import clases.*;
+import java.awt.Color;
 
 /**
  *
@@ -13,11 +14,14 @@ import clases.Materias;
  */
 public class MenuPrincipal extends javax.swing.JFrame {
          static HashSet<Materias> materia= new HashSet();
+         static HashSet<Alumnos> alumno = new HashSet<>();
     /**
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
-        initComponents();  
+        initComponents(); 
+        setLocationRelativeTo(null);
+        getContentPane().setBackground(Color.BLACK);
     }
 
     /**
@@ -31,8 +35,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JSeparator();
-        escritorio = new javax.swing.JDesktopPane();
-        jButton1 = new javax.swing.JButton();
+        escritorio = new javax.swing.JPanel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jmMaterias = new javax.swing.JMenu();
         jmiAltaMaterias = new javax.swing.JMenuItem();
@@ -41,37 +44,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jmInscripcion = new javax.swing.JMenu();
         jmiInscripcion = new javax.swing.JMenuItem();
         jmSalir = new javax.swing.JMenu();
+        jmiSalir = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        escritorio.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setBackground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
-                .addContainerGap(791, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(15, 15, 15))
+            .addGap(0, 881, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
-                .addContainerGap(427, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(20, 20, 20))
+            .addGap(0, 437, Short.MAX_VALUE)
         );
 
+        jMenuBar2.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuBar2.setForeground(new java.awt.Color(0, 204, 0));
         jMenuBar2.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
 
         jmMaterias.setText("Materias");
@@ -94,6 +87,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jmAlumnos.setText("Alumnos");
 
         jmiAltaAlumnos.setText("Altas Alumnos");
+        jmiAltaAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAltaAlumnosActionPerformed(evt);
+            }
+        });
         jmAlumnos.add(jmiAltaAlumnos);
 
         jMenuBar2.add(jmAlumnos);
@@ -117,6 +115,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 jmSalirActionPerformed(evt);
             }
         });
+
+        jmiSalir.setText("Salir");
+        jmiSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiSalirActionPerformed(evt);
+            }
+        });
+        jmSalir.add(jmiSalir);
+
         jMenuBar2.add(jmSalir);
 
         setJMenuBar(jMenuBar2);
@@ -125,15 +132,61 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmSalirActionPerformed
+
+    private void jmiSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jmiSalirActionPerformed
+
+    private void jmiInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiInscripcionActionPerformed
+        // TODO add your handling code here:
+
+        escritorio.removeAll();
+        escritorio.repaint();
+        Inscripcion internalInsc = new Inscripcion(materia,alumno);
+        setLocationRelativeTo(null);
+        internalInsc.setVisible(true);
+        escritorio.add(internalInsc);
+
+    }//GEN-LAST:event_jmiInscripcionActionPerformed
+
+    private void jmiAltaAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAltaAlumnosActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        Alumno internaAl = new Alumno(alumno);
+        setLocationRelativeTo(null);
+        internaAl.setVisible(true);
+        escritorio.add(internaAl);
+
+    }//GEN-LAST:event_jmiAltaAlumnosActionPerformed
+
+    private void jmMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMateriasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmMateriasActionPerformed
+
+    private void jmiAltaMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAltaMateriasActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        Materia internalaMat = new Materia(materia);
+        internalaMat.setVisible(true);
+        escritorio.add(internalaMat);
+
+    }//GEN-LAST:event_jmiAltaMateriasActionPerformed
 
     public HashSet<Materias> getMateria() {
         return materia;
@@ -142,43 +195,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public static void setMateria(HashSet<Materias> materia) {
         MenuPrincipal.materia = materia;
     }
+      public HashSet<Alumnos> getAlumno() {
+        return alumno;
+    }
+
+    public static void setAlumno(HashSet<Alumnos> alumno) {
+        MenuPrincipal.alumno = alumno;
+    }
     
-    private void jmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSalirActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_jmSalirActionPerformed
-
-    private void jmMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMateriasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jmMateriasActionPerformed
-
-    private void jmiAltaMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAltaMateriasActionPerformed
-        // TODO add your handling code here:
-         escritorio.removeAll();
-        escritorio.repaint();
-        Materia internalaMat = new Materia(materia);
-        internalaMat.setVisible(true);
-        escritorio.add(internalaMat);
-        escritorio.moveToFront(internalaMat);
-    }//GEN-LAST:event_jmiAltaMateriasActionPerformed
-
-    private void jmiInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiInscripcionActionPerformed
-        // TODO add your handling code here:
-        
-        escritorio.removeAll();
-        escritorio.repaint();
-        Inscripcion internalInsc = new Inscripcion(materia);
-        internalInsc.setVisible(true);
-        escritorio.add(internalInsc);
-        escritorio.moveToFront(internalInsc);
-        
-    }//GEN-LAST:event_jmiInscripcionActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        System.out.println(materia);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -216,8 +240,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JSeparator jSeparator1;
@@ -228,5 +251,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiAltaAlumnos;
     private javax.swing.JMenuItem jmiAltaMaterias;
     private javax.swing.JMenuItem jmiInscripcion;
+    private javax.swing.JMenuItem jmiSalir;
     // End of variables declaration//GEN-END:variables
 }
