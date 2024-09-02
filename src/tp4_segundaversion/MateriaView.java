@@ -6,31 +6,27 @@ package tp4_segundaversion;
 
 import java.util.HashSet;
 import javax.swing.JOptionPane;
-import clases.Materias;
 import java.awt.Color;
+import clases.*;
 
 /**
  *
  * @author salon
  */
-public class Materia extends javax.swing.JInternalFrame {
-         HashSet<Materias> materia;
+public class MateriaView extends javax.swing.JInternalFrame {
+         HashSet<Materia> materias;
     /**
      * Creates new form Materia
-     * @param materia
+     * @param materias
      */
-    public Materia(HashSet<Materias> materia) {
+    public MateriaView(HashSet<Materia> materias) {
         initComponents();
         getContentPane().setBackground(Color.DARK_GRAY);
-        this.materia=materia;
+        this.materias=materias;
     }
 
-    public HashSet<Materias> getMateria() {
-        return materia;
-    }
-
-    public void setMateria(HashSet<Materias> materia) {
-        this.materia = materia;
+    public HashSet<Materia> getMateria() {
+        return materias;
     }
     
 
@@ -186,7 +182,7 @@ public class Materia extends javax.swing.JInternalFrame {
 
     private void jbTestMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTestMActionPerformed
         // TODO add your handling code here:
-           for(Materias i:materia){
+           for(Materia i:materias){
             System.out.println(i);
         }
     }//GEN-LAST:event_jbTestMActionPerformed
@@ -203,10 +199,10 @@ public class Materia extends javax.swing.JInternalFrame {
             String nombreM= jtNombreM.getText();
             String año= jtAño.getText();
             int anio = Integer.parseInt(año);
-            Materias m = new Materias(idMateria,nombreM,anio);
-            materia.add(m);
-            MenuPrincipal.setMateria(materia);
+            Materia m = new Materia(idMateria,nombreM,anio);
+            if(materias.add(m))
             JOptionPane.showMessageDialog(this, "Materia guardada!");
+            else  JOptionPane.showMessageDialog(this, "La materia ya existe.");
         }catch(NumberFormatException c){
            JOptionPane.showMessageDialog(this, "Error. Años solo acepta numeros", "Error",JOptionPane.ERROR_MESSAGE);
         }

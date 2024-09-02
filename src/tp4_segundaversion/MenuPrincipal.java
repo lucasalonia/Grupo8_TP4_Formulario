@@ -14,8 +14,8 @@ import javax.swing.JMenuBar;
  * @author salon
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-         static HashSet<Materias> materia= new HashSet();
-         static HashSet<Alumnos> alumno = new HashSet<>();
+         private HashSet<Materia> materias = new HashSet();
+         private HashSet<Alumno> alumnos = new HashSet<>();
     /**
      * Creates new form MenuPrincipal
      */
@@ -24,7 +24,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         getContentPane().setBackground(Color.BLACK);
     }
-
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,9 +44,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jmiAltaAlumnos = new javax.swing.JMenuItem();
         jmInscripcion = new javax.swing.JMenu();
         jmiInscripcion = new javax.swing.JMenuItem();
-        jmConsultar = new javax.swing.JMenu();
-        jmiConsMat = new javax.swing.JMenuItem();
-        jmiConsAl = new javax.swing.JMenuItem();
         jmSalir = new javax.swing.JMenu();
         jmiSalir = new javax.swing.JMenuItem();
 
@@ -119,24 +118,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jM.add(jmInscripcion);
 
-        jmConsultar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jmConsultar.setForeground(new java.awt.Color(51, 51, 51));
-        jmConsultar.setText("Consulta");
-        jmConsultar.setFont(new java.awt.Font("3270 Nerd Font", 0, 24)); // NOI18N
-
-        jmiConsMat.setText("Consultar materias");
-        jmiConsMat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiConsMatActionPerformed(evt);
-            }
-        });
-        jmConsultar.add(jmiConsMat);
-
-        jmiConsAl.setText("Consultar alumnos");
-        jmConsultar.add(jmiConsAl);
-
-        jM.add(jmConsultar);
-
         jmSalir.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jmSalir.setForeground(new java.awt.Color(51, 51, 51));
         jmSalir.setText("Salir");
@@ -186,20 +167,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jmiInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiInscripcionActionPerformed
         // TODO add your handling code here:
-
         escritorio.removeAll();
         escritorio.repaint();
-        Inscripcion internalInsc = new Inscripcion(materia,alumno);
+        InscripcionView internalInsc = new InscripcionView(materias,alumnos);
         setLocationRelativeTo(null);
         internalInsc.setVisible(true);
         escritorio.add(internalInsc);
+        
     }//GEN-LAST:event_jmiInscripcionActionPerformed
 
     private void jmiAltaAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAltaAlumnosActionPerformed
         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
-        Alumno internaAl = new Alumno(alumno);
+        AlumnoView internaAl = new AlumnoView(alumnos);
         setLocationRelativeTo(null);
         internaAl.setVisible(true);
         escritorio.add(internaAl);
@@ -213,35 +194,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
-        Materia internalaMat = new Materia(materia);
+        MateriaView internalaMat = new MateriaView(materias);
         internalaMat.setVisible(true);
         escritorio.add(internalaMat);
     }//GEN-LAST:event_jmiAltaMateriasActionPerformed
-
-    private void jmiConsMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsMatActionPerformed
-        // TODO add your handling code here:
-        escritorio.removeAll();
-        escritorio.repaint();
-        ConsultaM internalaMat = new ConsultaM();
-        internalaMat.setVisible(true);
-        escritorio.add(internalaMat);
-    }//GEN-LAST:event_jmiConsMatActionPerformed
     
         
   
-    public HashSet<Materias> getMateria() {
-        return materia;
+    public HashSet<Materia> getMateria() {
+        return materias;
     }
 
-    public static void setMateria(HashSet<Materias> materia) {
-        MenuPrincipal.materia = materia;
+    public  void setMateria(HashSet<Materia> materia) {
+        materias = materia;
     }
-      public HashSet<Alumnos> getAlumno() {
-        return alumno;
+      public HashSet<Alumno> getAlumno() {
+        return alumnos;
     }
 
-    public static void setAlumno(HashSet<Alumnos> alumno) {
-        MenuPrincipal.alumno = alumno;
+    public  void setAlumno(HashSet<Alumno> alumno) {
+        alumnos = alumno;
     }
     
     /**
@@ -286,14 +258,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel escritorio;
     private javax.swing.JMenuBar jM;
     private javax.swing.JMenu jmAlumnos;
-    private javax.swing.JMenu jmConsultar;
     private javax.swing.JMenu jmInscripcion;
     private javax.swing.JMenu jmMaterias;
     private javax.swing.JMenu jmSalir;
     private javax.swing.JMenuItem jmiAltaAlumnos;
     private javax.swing.JMenuItem jmiAltaMaterias;
-    private javax.swing.JMenuItem jmiConsAl;
-    private javax.swing.JMenuItem jmiConsMat;
     private javax.swing.JMenuItem jmiInscripcion;
     private javax.swing.JMenuItem jmiSalir;
     // End of variables declaration//GEN-END:variables

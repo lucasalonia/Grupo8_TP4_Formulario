@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author salon
  */
-public class Alumno extends javax.swing.JInternalFrame {
-            HashSet<Alumnos> alumnoHash=new HashSet<>();
+public class AlumnoView extends javax.swing.JInternalFrame {
+            HashSet<clases.Alumno> alumnoHash;
     /**
      * Creates new form Alumno
      */
-    public Alumno(HashSet<Alumnos> alumnoHash) {
+    public AlumnoView(HashSet<Alumno> alumnoHash) {
         initComponents();
          getContentPane().setBackground(Color.DARK_GRAY);
         this.alumnoHash=alumnoHash;
@@ -175,9 +175,8 @@ public class Alumno extends javax.swing.JInternalFrame {
             String apellido = jtApellidoA.getText();
             String nombre = jtNombreA.getText();
             int legajo = Integer.parseInt(jtLegajoA.getText());
-            Alumnos a = new Alumnos(legajo,apellido,nombre);
+            clases.Alumno a = new clases.Alumno(legajo,apellido,nombre);
             alumnoHash.add(a);
-            MenuPrincipal.setAlumno(alumnoHash);
             JOptionPane.showMessageDialog(this, "Alumno preparado para la inscripcion!");
         }
         catch(NumberFormatException e){
@@ -199,7 +198,7 @@ public class Alumno extends javax.swing.JInternalFrame {
 
     private void jbTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTestActionPerformed
         // TODO add your handling code here:
-        for(Alumnos a: alumnoHash){
+        for(clases.Alumno a: alumnoHash){
             System.out.println(a);
         }
     }//GEN-LAST:event_jbTestActionPerformed

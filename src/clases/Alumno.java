@@ -2,21 +2,22 @@ package clases;
 
 
 import java.util.HashSet;
+import javax.swing.JOptionPane;
 
 
 
 
-public class Alumnos {
+public class Alumno {
     private int legajo;
     private String apellido;
     private String nombre;
-    private HashSet<Materias> materias= new HashSet ();
+    private HashSet<Materia> materias= new HashSet ();
     
     
 
 
 
-    public Alumnos(int legajo, String apellido, String nombre) {
+    public Alumno(int legajo, String apellido, String nombre) {
         this.legajo = legajo;
         this.apellido = apellido;
         this.nombre = nombre;
@@ -24,7 +25,11 @@ public class Alumnos {
         
     }
 
-    public Alumnos() {
+    public HashSet<Materia> getMaterias() {
+        return materias;
+    }
+
+    public Alumno() {
     }
 
  
@@ -56,8 +61,8 @@ public class Alumnos {
 inscribir al Alumno en una materia determinada (implementar de manera tal que no deje
 inscribir un alumno en dos materias iguales.) y otro método cantidadMaterias que devuelve la
 cantidad de materias a las que está inscripto el alumno.*/
-    public void agregarMateria(Materias m) {
-        materias.add(m);
+    public void agregarMateria(Materia m) {
+        materias.add(m);   
     }
 
     
@@ -82,7 +87,7 @@ cantidad de materias a las que está inscripto el alumno.*/
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Alumnos other = (Alumnos) obj;
+        final Alumno other = (Alumno) obj;
         return this.legajo == other.legajo;
     }
 

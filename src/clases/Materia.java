@@ -10,19 +10,19 @@ import java.util.Objects;
  *
  * @author salon
  */
-public class Materias {
+public class Materia {
     
     private  String idMateria;
     private String nombreMateria;
     private int anio;
 
-    public Materias(String idMateria, String nombreMateria, int anio) {
+    public Materia(String idMateria, String nombreMateria, int anio) {
         this.idMateria = idMateria;
         this.nombreMateria = nombreMateria;
         this.anio = anio;
     }
 
-    public Materias() {
+    public Materia() {
     }
     
 
@@ -74,7 +74,7 @@ public class Materias {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Materias other = (Materias) obj;
+        final Materia other = (Materia) obj;
         if (!Objects.equals(this.idMateria, other.idMateria)) {
             return false;
         }
